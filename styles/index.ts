@@ -35,3 +35,16 @@ export const LanguageTitle = styled.span`
   display: flex;
   align-items: center;
 `
+
+export const InputContainer = styled.div`
+  height: 226px;
+  padding: 20px;
+`
+
+export const InputText = styled.textarea`
+  font-size: 30px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: 'Pretendard';
+`
