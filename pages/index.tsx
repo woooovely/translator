@@ -7,7 +7,7 @@ import axios from "axios";
 const TranslatePage = () => {
   const [inputCount, setInputCount] = useState<number>(0);
   const [text, setText] = useState<string>("");
-  const [translatedText, setTranslatedText] = useState<string>('');
+  const [translatedText, setTranslatedText] = useState<string>("");
 
   const onInputHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputCount(e.target.value.length);
@@ -16,25 +16,11 @@ const TranslatePage = () => {
 
   const handleTranslation = async () => {
     try {
-      const response = await axios.post(
-        "https://openapi.naver.com/v1/papago/n2mt",
-        {
-          source: 'ko',
-          target: 'en',
-          text: text
-        },
-        {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            'X-Naver-Client-Id': 'P3BXAyxueZRvMMDSOpVV',
-            'X-Naver-Client-Secret': 'DSR3ssy7xn'
-          }
-        }
-      );
-      const translated = response.data?.message?.result?.translatedText;
-      setTranslatedText(translated || '')
+      const response = await axios.post("/api/translate", { text });
+      const translated = response.data.translatedText;
+      setTranslatedText(translated || "");
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   };
 
@@ -46,7 +32,7 @@ const TranslatePage = () => {
       <S.TextBoxContainer>
         <S.EngTextBox>
           <S.LanguageTitleBox>
-            <S.LanguageTitle>한국어</S.LanguageTitle>
+            <S.LanguageTitle>영어</S.LanguageTitle>
           </S.LanguageTitleBox>
           <S.InputContainer>
             <S.InputText
@@ -61,12 +47,14 @@ const TranslatePage = () => {
               <span>{inputCount}</span>
               <span> / 2000</span>
             </S.TextLength>
-            <S.TranslateBtn onClick={handleTranslation}>번역하기</S.TranslateBtn>
+            <S.TranslateBtn onClick={handleTranslation}>
+              번역하기
+            </S.TranslateBtn>
           </S.ToolbarBox>
         </S.EngTextBox>
         <S.KorTranlatedBox>
           <S.LanguageTitleBox>
-            <S.LanguageTitle>영어</S.LanguageTitle>
+            <S.LanguageTitle>한국어</S.LanguageTitle>
           </S.LanguageTitleBox>
           <S.InputContainer>
             <S.TranslatedText>{translatedText}</S.TranslatedText>
