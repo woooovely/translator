@@ -75,4 +75,6 @@ export const TranslateBtn = styled.button`
 `
 
 export const TranslatedText = styled.p`
+  font-size: 30px;
+  margin: 0;
 `
