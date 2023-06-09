@@ -48,3 +48,13 @@ export const InputText = styled.textarea`
   resize: none;
   font-family: 'Pretendard';
 `
+
+export const ToolbarBox = styled.div`
+  height: 62px;
+  display: flex;
+`
+
+export const TextLength = styled.p`
+  font-size: 20px;
+  color: #BBBBBB;
+`
