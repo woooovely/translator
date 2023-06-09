@@ -52,9 +52,27 @@ export const InputText = styled.textarea`
 export const ToolbarBox = styled.div`
   height: 62px;
   display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #E1E1E1;
 `
 
 export const TextLength = styled.p`
   font-size: 20px;
   color: #BBBBBB;
+  margin-left: 20px;
+`
+
+export const TranslateBtn = styled.button`
+  height: 62px;
+  width: 120px;
+  border: none;
+  font-size: 20px;
+  background-color: #55B5F3;
+  cursor: pointer;
+  color: white;
+  font-weight: 550;
+  border-bottom-right-radius: 9px;
+`
+
+export const TranslatedText = styled.p`
 `
