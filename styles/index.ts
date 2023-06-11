@@ -72,6 +72,7 @@ export const TranslateBtn = styled.button`
   color: white;
   font-weight: 550;
   border-bottom-right-radius: 9px;
+  outline: none;
 `
 
 export const TranslatedText = styled.p`
