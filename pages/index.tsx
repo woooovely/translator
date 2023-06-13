@@ -27,12 +27,13 @@ const TranslatePage = () => {
   return (
     <div>
       <Head>
-        <title>한국어 - 영어 번역기</title>
+        <title>영어 - 한국어 번역기</title>
       </Head>
       <S.TextBoxContainer>
         <S.EngTextBox>
           <S.LanguageTitleBox>
             <S.LanguageTitle>영어</S.LanguageTitle>
+            <S.ChangeBtn>바꾸기</S.ChangeBtn>
           </S.LanguageTitleBox>
           <S.InputContainer>
             <S.InputText

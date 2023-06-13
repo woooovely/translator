@@ -26,6 +26,8 @@ export const KorTranlatedBox = styled.div`
 export const LanguageTitleBox = styled.div`
   height: 52px;
   border-bottom: 1px solid #E3E3E3;
+  display: flex;
+  justify-content: space-between;
 `
 
 export const LanguageTitle = styled.span`
@@ -78,4 +80,14 @@ export const TranslateBtn = styled.button`
 export const TranslatedText = styled.p`
   font-size: 30px;
   margin: 0;
+`
+
+export const ChangeBtn = styled.button`
+  width: 100px;
+  height: 50px;
+  background-color: white;
+  border: none;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
 `
