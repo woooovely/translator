@@ -4,10 +4,17 @@ import * as S from "../styles/index";
 import { useState } from "react";
 import axios from "axios";
 
+const languageMap: { [key: string]: string } = {
+  '영어': 'en',
+  '한국어': 'ko',
+};
+
 const TranslatePage = () => {
   const [inputCount, setInputCount] = useState<number>(0);
   const [text, setText] = useState<string>("");
   const [translatedText, setTranslatedText] = useState<string>("");
+  const [source, setSource] = useState<string>("영어");
+  const [target, setTarget] = useState<string>("한국어");
 
   const onInputHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputCount(e.target.value.length);
@@ -16,12 +23,25 @@ const TranslatePage = () => {
 
   const handleTranslation = async () => {
     try {
-      const response = await axios.post("/api/translate", { text });
+      const sourceCode = languageMap[source];
+      const targetCode = languageMap[target]
+      const response = await axios.post("/api/translate", {
+        text,
+        source: sourceCode,
+        target: targetCode
+      });
       const translated = response.data.translatedText;
       setTranslatedText(translated || "");
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleLanguageChange = () => {
+    const temp = source;
+    setSource(target);
+    setTarget(temp);
+    setTranslatedText(""); // 번역된 텍스트 초기화
   };
 
   return (
@@ -32,8 +52,8 @@ const TranslatePage = () => {
       <S.TextBoxContainer>
         <S.EngTextBox>
           <S.LanguageTitleBox>
-            <S.LanguageTitle>영어</S.LanguageTitle>
-            <S.ChangeBtn>바꾸기</S.ChangeBtn>
+            <S.LanguageTitle>{source}</S.LanguageTitle>
+            <S.ChangeBtn onClick={handleLanguageChange}>바꾸기</S.ChangeBtn>
           </S.LanguageTitleBox>
           <S.InputContainer>
             <S.InputText
@@ -55,7 +75,7 @@ const TranslatePage = () => {
         </S.EngTextBox>
         <S.KorTranlatedBox>
           <S.LanguageTitleBox>
-            <S.LanguageTitle>한국어</S.LanguageTitle>
+            <S.LanguageTitle>{target}</S.LanguageTitle>
           </S.LanguageTitleBox>
           <S.InputContainer>
             <S.TranslatedText>{translatedText}</S.TranslatedText>

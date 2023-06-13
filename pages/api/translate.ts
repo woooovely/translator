@@ -4,13 +4,13 @@ import { NextApiRequest, NextApiResponse } from 'next';
 const translateHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     try {
-      const { text } = req.body;
+      const { text, source, target } = req.body;
 
       const response = await axios.post(
         'https://openapi.naver.com/v1/papago/n2mt',
         {
-          source: 'en',
-          target: 'ko',
+          source: source,
+          target: target,
           text: text,
         },
         {
