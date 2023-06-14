@@ -89,5 +89,4 @@ export const ChangeBtn = styled.button`
   border: none;
   border-top-right-radius: 10px;
   cursor: pointer;
-  font-weight: 600;
 `
