@@ -3,11 +3,7 @@ import Image from "next/image";
 import * as S from "../styles/index";
 import { useState } from "react";
 import axios from "axios";
-
-const languageMap: { [key: string]: string } = {
-  '영어': 'en',
-  '한국어': 'ko',
-};
+import { languageMap } from '../constants/conststant';
 
 const TranslatePage = () => {
   const [inputCount, setInputCount] = useState<number>(0);
@@ -17,7 +13,7 @@ const TranslatePage = () => {
   const [target, setTarget] = useState<string>("한국어");
 
   const onInputHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInputCount(e.target.value.length);
+    setInputCount(e.target.value.length); 
     setText(e.target.value);
   };
 
