@@ -36,6 +36,7 @@ export const LanguageTitle = styled.span`
   padding: 0;
   display: flex;
   align-items: center;
+  margin-left: 20px;
 `
 
 export const InputContainer = styled.div`
