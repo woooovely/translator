@@ -40,6 +40,12 @@ const TranslatePage = () => {
     setTranslatedText(""); // 번역된 텍스트 초기화
   };
 
+  const onKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter') {
+      handleTranslation();
+    }
+  }
+
   return (
     <div>
       <Head>
@@ -57,6 +63,7 @@ const TranslatePage = () => {
               placeholder="번역할 내용을 입력하세요."
               onChange={onInputHandler}
               value={text}
+              onKeyPress={onKeyPress}
             />
           </S.InputContainer>
           <S.ToolbarBox>
