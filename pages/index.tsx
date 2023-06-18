@@ -42,6 +42,7 @@ const TranslatePage = () => {
 
   const onKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter') {
+      e.preventDefault();
       handleTranslation();
     }
   }
