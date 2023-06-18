@@ -6,6 +6,10 @@ export const TextBoxContainer = styled.div`
   padding-right: 30px;
   margin-top: 50px;
   display: flex;
+  @media screen and (max-width: 781px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const EngTextBox = styled.div`
@@ -21,6 +25,9 @@ export const KorTranlatedBox = styled.div`
   height: 343px;
   border: 1px solid #CDCDCD;
   border-radius: 10px;
+  @media screen and (max-width: 781px) {
+    margin-top: 40px;
+  }
 `
 
 export const LanguageTitleBox = styled.div`
