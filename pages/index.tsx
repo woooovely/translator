@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import * as S from "../styles/index";
 import { useState } from "react";
 import axios from "axios";
@@ -32,6 +31,7 @@ const TranslatePage = () => {
       console.error(error);
     }
   };
+
 
   const handleLanguageChange = () => {
     const temp = source;
