@@ -80,6 +80,14 @@ const TranslatePage = () => {
         <S.KorTranlatedBox>
           <S.LanguageTitleBox>
             <S.LanguageTitle>{target}</S.LanguageTitle>
+            <S.SelectLangauge>
+              <option>한국어 - 영어</option>
+              <option>한국어 - 일본어</option>
+              <option>한국어 - 중국어</option>
+              <option>영어 - 일본어</option>
+              <option>영어 - 중국어</option>
+              <option>일본어 - 중국어</option>
+            </S.SelectLangauge>
           </S.LanguageTitleBox>
           <S.InputContainer>
             <S.TranslatedText>{translatedText}</S.TranslatedText>

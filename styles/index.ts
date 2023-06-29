@@ -98,3 +98,8 @@ export const ChangeBtn = styled.button`
   border-top-right-radius: 10px;
   cursor: pointer;
 `
+
+export const SelectLangauge = styled.select`
+  border: none;
+  border-top-right-radius: 10px;
+`
