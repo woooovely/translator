@@ -2,7 +2,7 @@ import Head from "next/head";
 import * as S from "../styles/index";
 import { useState } from "react";
 import axios from "axios";
-import { languageMap } from '../constants/conststant';
+import { languageMap } from "../constants/conststant";
 
 const TranslatePage = () => {
   const [inputCount, setInputCount] = useState<number>(0);
@@ -12,18 +12,18 @@ const TranslatePage = () => {
   const [target, setTarget] = useState<string>("한국어");
 
   const onInputHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInputCount(e.target.value.length); 
+    setInputCount(e.target.value.length);
     setText(e.target.value);
   };
 
   const handleTranslation = async () => {
     try {
       const sourceCode = languageMap[source];
-      const targetCode = languageMap[target]
+      const targetCode = languageMap[target];
       const response = await axios.post("/api/translate", {
         text,
         source: sourceCode,
-        target: targetCode
+        target: targetCode,
       });
       const translated = response.data.translatedText;
       setTranslatedText(translated || "");
@@ -31,7 +31,6 @@ const TranslatePage = () => {
       console.error(error);
     }
   };
-
 
   const handleLanguageChange = () => {
     const temp = source;
@@ -41,22 +40,33 @@ const TranslatePage = () => {
   };
 
   const onKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       e.preventDefault();
       handleTranslation();
     }
-  }
+  };
 
   return (
     <div>
       <Head>
-        <title>{source} - {target} 번역기</title>
+        <title>
+          {source} - {target} 번역기
+        </title>
       </Head>
       <S.TextBoxContainer>
         <S.EngTextBox>
           <S.LanguageTitleBox>
             <S.LanguageTitle>{source}</S.LanguageTitle>
-            <S.ChangeBtn onClick={handleLanguageChange}>바꾸기</S.ChangeBtn>
+            <S.SelectLangauge
+              value={source}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                setSource(e.target.value);
+              }}
+            >
+              {Object.keys(languageMap).map((key) => (
+                <option key={key} value={key}>{key}</option>
+              ))}
+            </S.SelectLangauge>
           </S.LanguageTitleBox>
           <S.InputContainer>
             <S.InputText
@@ -80,18 +90,13 @@ const TranslatePage = () => {
         <S.KorTranlatedBox>
           <S.LanguageTitleBox>
             <S.LanguageTitle>{target}</S.LanguageTitle>
-            <S.SelectLangauge>
-              <option>한국어 - 영어</option>
-              <option>한국어 - 일본어</option>
-              <option>한국어 - 중국어</option>
-              <option>영어 - 일본어</option>
-              <option>영어 - 중국어</option>
-              <option>일본어 - 중국어</option>
-            </S.SelectLangauge>
           </S.LanguageTitleBox>
           <S.InputContainer>
             <S.TranslatedText>{translatedText}</S.TranslatedText>
           </S.InputContainer>
+          <S.ToolbarBox>
+            <S.ChangeBtn onClick={handleLanguageChange}>바꾸기</S.ChangeBtn>
+          </S.ToolbarBox>
         </S.KorTranlatedBox>
       </S.TextBoxContainer>
     </div>
