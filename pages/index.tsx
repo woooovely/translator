@@ -64,7 +64,9 @@ const TranslatePage = () => {
               }}
             >
               {Object.keys(languageMap).map((key) => (
-                <option key={key} value={key}>{key}</option>
+                <option key={key} value={key}>
+                  {key}
+                </option>
               ))}
             </S.SelectLangauge>
           </S.LanguageTitleBox>
@@ -90,6 +92,18 @@ const TranslatePage = () => {
         <S.KorTranlatedBox>
           <S.LanguageTitleBox>
             <S.LanguageTitle>{target}</S.LanguageTitle>
+            <S.SelectLangauge
+              value={target}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                setTarget(e.target.value);
+              }}
+            >
+              {Object.keys(languageMap).map((key) => (
+                <option key={key} value={key}>
+                  {key}
+                </option>
+              ))}
+            </S.SelectLangauge>
           </S.LanguageTitleBox>
           <S.InputContainer>
             <S.TranslatedText>{translatedText}</S.TranslatedText>
