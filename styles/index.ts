@@ -91,15 +91,19 @@ export const TranslatedText = styled.p`
 `
 
 export const ChangeBtn = styled.button`
-  width: 100px;
-  height: 50px;
-  background-color: white;
+  height: 62px;
+  width: 120px;
   border: none;
-  border-top-right-radius: 10px;
+  font-size: 20px;
+  background-color: #21dc6d;
+  color: white;
+  font-weight: 550;
   cursor: pointer;
+  border-bottom-left-radius: 9px;
 `
 
 export const SelectLangauge = styled.select`
   border: none;
   border-top-right-radius: 10px;
+  outline: none;
 `
