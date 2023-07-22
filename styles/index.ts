@@ -6,7 +6,7 @@ export const TextBoxContainer = styled.div`
   padding-right: 30px;
   margin-top: 50px;
   display: flex;
-  @media screen and (max-width: 781px) {
+  @media screen and (max-width: 368px) {
     flex-direction: column;
     align-items: center;
   }
@@ -18,6 +18,10 @@ export const EngTextBox = styled.div`
   border: 1px solid #CDCDCD;
   border-radius: 10px;
   margin-right: 20px;
+  @media screen and (max-width: 368px) {
+    width: 360px;
+    margin: 0 auto;
+  }
 `
 
 export const KorTranlatedBox = styled.div`
@@ -25,8 +29,9 @@ export const KorTranlatedBox = styled.div`
   height: 343px;
   border: 1px solid #CDCDCD;
   border-radius: 10px;
-  @media screen and (max-width: 781px) {
-    margin-top: 40px;
+  @media screen and (max-width: 368px) {
+    width: 360px;
+    margin: 0 auto;
   }
 `
 
@@ -57,6 +62,9 @@ export const InputText = styled.textarea`
   outline: none;
   resize: none;
   font-family: 'Pretendard';
+  @media screen and (max-width: 368px) {
+    font-size: 20px;
+  }
 `
 
 export const ToolbarBox = styled.div`
@@ -88,6 +96,9 @@ export const TranslateBtn = styled.button`
 export const TranslatedText = styled.p`
   font-size: 30px;
   margin: 0;
+  @media screen and (max-width: 368px) {
+    font-size: 20px;
+  }
 `
 
 export const ChangeBtn = styled.button`
