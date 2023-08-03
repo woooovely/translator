@@ -54,9 +54,7 @@ const TranslatePage = () => {
   return (
     <div>
       <Head>
-        <title>
-          {source} - {target} 번역기
-        </title>
+        <title>Translator</title>
       </Head>
       <S.TextBoxContainer>
         <S.EngTextBox>
