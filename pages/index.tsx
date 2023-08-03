@@ -10,6 +10,7 @@ const TranslatePage = () => {
   const [translatedText, setTranslatedText] = useState<string>("");
   const [source, setSource] = useState<string>("영어");
   const [target, setTarget] = useState<string>("한국어");
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const onInputHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputCount(e.target.value.length);
@@ -18,6 +19,7 @@ const TranslatePage = () => {
 
   const handleTranslation = async () => {
     try {
+      setIsLoading(true);
       const sourceCode = languageMap[source];
       const targetCode = languageMap[target];
       const response = await axios.post("/api/translate", {
@@ -27,8 +29,10 @@ const TranslatePage = () => {
       });
       const translated = response.data.translatedText;
       setTranslatedText(translated || "");
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
+      setIsLoading(false);
     }
   };
 
@@ -36,7 +40,8 @@ const TranslatePage = () => {
     const temp = source;
     setSource(target);
     setTarget(temp);
-    setTranslatedText(""); // 번역된 텍스트 초기화
+    setText(translatedText);
+    setTranslatedText(text);
   };
 
   const onKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -106,7 +111,9 @@ const TranslatePage = () => {
             </S.SelectLangauge>
           </S.LanguageTitleBox>
           <S.InputContainer>
-            <S.TranslatedText>{translatedText}</S.TranslatedText>
+            <S.TranslatedText>
+              {isLoading ? "..." : translatedText}
+            </S.TranslatedText>
           </S.InputContainer>
           <S.ToolbarBox>
             <S.ChangeBtn onClick={handleLanguageChange}>바꾸기</S.ChangeBtn>

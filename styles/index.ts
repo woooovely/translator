@@ -65,6 +65,7 @@ export const InputText = styled.textarea`
   @media screen and (max-width: 368px) {
     font-size: 20px;
   }
+  overflow: hidden;
 `
 
 export const ToolbarBox = styled.div`
