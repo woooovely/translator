@@ -6,9 +6,11 @@ export const TextBoxContainer = styled.div`
   padding-right: 30px;
   margin-top: 50px;
   display: flex;
-  @media screen and (max-width: 368px) {
+  @media screen and (max-width: 400px) {
     flex-direction: column;
     align-items: center;
+    padding-right: 50px;
+    padding-left: 20px;
   }
 `
 
@@ -18,7 +20,7 @@ export const EngTextBox = styled.div`
   border: 1px solid #CDCDCD;
   border-radius: 10px;
   margin-right: 20px;
-  @media screen and (max-width: 368px) {
+  @media screen and (max-width: 400px) {
     width: 360px;
     margin: 0 auto;
   }
@@ -29,7 +31,7 @@ export const KorTranlatedBox = styled.div`
   height: 343px;
   border: 1px solid #CDCDCD;
   border-radius: 10px;
-  @media screen and (max-width: 368px) {
+  @media screen and (max-width: 400px) {
     width: 360px;
     margin: 0 auto;
   }
