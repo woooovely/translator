@@ -3,6 +3,7 @@ import * as S from "../styles/index";
 import { useState } from "react";
 import axios from "axios";
 import { languageMap } from "../constants/conststant";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const TranslatePage = () => {
   const [inputCount, setInputCount] = useState<number>(0);
@@ -11,10 +12,16 @@ const TranslatePage = () => {
   const [source, setSource] = useState<string>("영어");
   const [target, setTarget] = useState<string>("한국어");
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isInput, setIsInput] = useState<boolean>(false);
 
   const onInputHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputCount(e.target.value.length);
     setText(e.target.value);
+    if (e.target.value !== "") {
+      setIsInput(true);
+    } else {
+      setIsInput(false);
+    }
   };
 
   const handleTranslation = async () => {
@@ -51,6 +58,11 @@ const TranslatePage = () => {
     }
   };
 
+  const handleDeleteText = () => {
+    setText("");
+    setTranslatedText("");
+  };
+
   return (
     <div>
       <Head>
@@ -81,6 +93,9 @@ const TranslatePage = () => {
               value={text}
               onKeyPress={onKeyPress}
             />
+            {isInput && (
+              <S.DeleteBtn icon={faXmark} onClick={handleDeleteText} />
+            )}
           </S.InputContainer>
           <S.ToolbarBox>
             <S.TextLength>

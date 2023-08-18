@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export const TextBoxContainer = styled.div`
   height: 343px;
@@ -56,6 +57,8 @@ export const LanguageTitle = styled.span`
 export const InputContainer = styled.div`
   height: 226px;
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
 `
 
 export const InputText = styled.textarea`
@@ -120,4 +123,11 @@ export const SelectLangauge = styled.select`
   border: none;
   border-top-right-radius: 10px;
   outline: none;
+`
+
+export const DeleteBtn = styled(FontAwesomeIcon)`
+  color: #454545;
+  width: 21px;
+  height: 21px;
+  cursor: pointer;
 `
